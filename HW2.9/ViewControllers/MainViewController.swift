@@ -50,10 +50,6 @@ class MainViewController: UIViewController {
         nameAnimationLabal.text = animation
         animationView.animation = animation
         animationView.animate()
-        animationView.animateToNext {
-            self.animationView.animation = Spring.AnimationPreset.FadeIn.rawValue
-            self.animationView.animate()
-        }
     }
     
     private func prepareNextAnimation() {
@@ -62,6 +58,8 @@ class MainViewController: UIViewController {
     }
 
 }
+
+// MARK: - Extension Array
 
 extension Array where Element: Hashable {
     func next(item: Element) -> Element? {
