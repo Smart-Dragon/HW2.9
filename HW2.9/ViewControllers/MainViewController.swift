@@ -53,7 +53,7 @@ class MainViewController: UIViewController {
     }
     
     private func prepareNextAnimation() {
-        currentAnimation = animations.next(item: currentAnimation)
+        currentAnimation = animations.next(from: currentAnimation)
         startAnimationButton.setTitle(currentAnimation.rawValue, for: .normal)
     }
 
@@ -62,7 +62,7 @@ class MainViewController: UIViewController {
 // MARK: - Extension Array
 
 extension Array where Element: Hashable {
-    func next(item: Element) -> Element? {
+    func next(from item: Element) -> Element? {
         if let index = self.firstIndex(of: item), index + 1 <= self.count {
             return index + 1 == self.count ? self[0] : self[index + 1]
         }
